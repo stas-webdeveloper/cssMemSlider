@@ -29,34 +29,30 @@ body {
     display: flex;
     margin-bottom: 20px;
     width: 400%;
-
-    /* width: 61.2rem; */
-    /* max-width: 612px; */
-    /* height: 40.8rem; */
 }
 
-.slide {
+.slide,
+.text {
     width: 25%;
     transition: all .8s ease;
 }
 #radio1:checked ~ .slides .slide1,
-#radio1:checked ~ .slider-text-wrapper .slider__text .text1 {
+#radio1:checked ~ .slider-footer .slider-text-wrapper .slider__text .text1 {
     margin-left: 0;
 }
 #radio2:checked ~ .slides .slide1,
-#radio2:checked ~ .slider-text-wrapper .slider__text .text1 {
+#radio2:checked ~ .slider-footer .slider-text-wrapper .slider__text .text1 {
     margin-left: -25%;
 }
 #radio3:checked ~ .slides .slide1,
-#radio3:checked ~ .slider-text-wrapper .slider__text .text1 {
+#radio3:checked ~ .slider-footer .slider-text-wrapper .slider__text .text1 {
     margin-left: -50%;
 }
 #radio4:checked ~ .slides .slide1,
-#radio4:checked ~ .slider-text-wrapper .slider__text .text1 {
+#radio4:checked ~ .slider-footer .slider-text-wrapper .slider__text .text1 {
     margin-left: -75%;
 }
 .slide__img {
-    /* width: 800px; */
     width: 100%;
     border-radius: 9px;
 }
@@ -65,6 +61,7 @@ body {
     display: flex;
     justify-content: end;
     width: 30%;
+    /* order: 2; */
 }
 .nav {
     display: inline-block;
@@ -85,15 +82,16 @@ input:hover {
     cursor: pointer;
 }
 
-/* .slider-footer {
+.slider-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-} */
+}
 
 .slider-text-wrapper {
     width: 70%;
+    /* order: 1; */
     overflow: hidden;
 }
 
@@ -103,24 +101,33 @@ input:hover {
     font-size: 2.2rem;
 }
 
-.text {
-    width: 25%;
-    background: grey;
-}
-
 @media screen and (max-width: 1200px) {
     .slider-wrapper {
         max-width: 700px;
     }
-    ..slider__text {
+    .slider__text {
         font-size: 1.8rem;
     }
 }
 @media screen and (max-width: 768px) {
+    .slider-footer {
+        flex-wrap: wrap;
+        /* flex-direction: row-reverse; */
+    }
     .slider-wrapper {
         max-width: 300px;
     }
+    .slider-text-wrapper {
+        order: 2;
+        width: 100%;
+        margin-top: 10px;
+    }
     .slider__text {
         font-size: 1.6rem;
+    }
+    .navigation {
+        order: 1;
+        width: 100%;
+        justify-content: center;
     }
 }
